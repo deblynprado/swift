@@ -9,5 +9,13 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet var inputName: UITextField!
+    
+    
+    @IBAction func buttonHello(_ sender: Any) {
+    }
+    
+    
+    @IBOutlet var textAreaHello: UITextView!
 }
 
