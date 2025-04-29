@@ -12,14 +12,13 @@ struct ContentView: View {
     var body: some View {
         List(pokemons) { pokemon in
             Text(pokemon.name)
-            
+            AsyncImage(url: pokemon.cover.image)
         }
         .onAppear() {
             guard pokemons.isEmpty else { return }
             let cover: PokemonCover = .init(indexImage: 1)
             let pokemon = Pokemon(name: "Pikachu", cover: cover)
             pokemons.append(pokemon)
-            //TODO: First API fetch
         }
     }
 }
