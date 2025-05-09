@@ -9,11 +9,13 @@ import SwiftUI
 
 struct Header: View {
     var body: some View {
-       HStack {
+       ZStack {
             Text("PokeApi")
+               .font(.title)
+               
         }
-       .frame(width: .infinity)
-       .background(Color.blue)
+       .frame(maxWidth: .infinity)
+       .background(Color.red)
     }
 }
 

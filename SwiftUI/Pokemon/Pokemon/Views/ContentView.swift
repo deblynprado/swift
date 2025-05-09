@@ -15,7 +15,7 @@ struct ContentView: View {
         
         List(pokemons) { pokemon in
             HStack {
-                Text(pokemon.name)
+                Text(pokemon.data.name)
                 AsyncImage(
                     url: pokemon.cover.image,
                     content: { image in
@@ -31,9 +31,11 @@ struct ContentView: View {
         }
         .onAppear() {
             guard pokemons.isEmpty else { return }
-            let cover: PokemonCover = .init(indexImage: 4)
-            let pokemon = Pokemon(name: "Pikachu", cover: cover)
-            pokemons.append(pokemon)
+            Network().fetchList { pokemonsData in
+                pokemons = pokemonsData.enumerated().map { (index, data) in
+                    Pokemon(data: data, cover: .init(indexImage: index + 1))
+                }
+            }
         }
     }
 }
