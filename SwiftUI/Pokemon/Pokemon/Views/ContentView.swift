@@ -31,7 +31,7 @@ struct ContentView: View {
                     do {
                         let pokemonsData = try await Network().fetchList()
                         pokemons = pokemonsData.enumerated().map { (index, data) in
-                            Pokemon(data: data, cover: .init(indexImage: index + 1))
+                            Pokemon(data: data, cover: .init(indexImage: index + 1), typeColor: .init(apiType: "grass"))
                         }
                     } catch {
                         print(error)

@@ -13,13 +13,30 @@ struct DetailView: View {
         HStack {
             Text(pokemon.data.name)
             Text(pokemon.data.type[0])
-            var test = Color.typeGrass
+            AsyncImage(
+                url: pokemon.cover.image,
+                content: { image in
+                    image.resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(maxHeight: 100)
+                },
+                placeholder: {
+                    ProgressView()
+                }
+            )
         }
         .frame(maxWidth: .infinity)
-        .background(Color.typeGrass)
+        .padding(8)
+        .background(PokemonType(apiType: pokemon.data.type[0]).getColor())
     }
 }
 
 #Preview {
-    DetailView(pokemon: .init(data: .init(name: "Bulbasaur", type: ["grass"]), cover: .init(indexImage: 1)))
+    DetailView(
+        pokemon: .init(data: .init(
+            name: "Bulbasaur",
+            type: ["grass"]),
+                       cover: .init(indexImage: 1),
+                       typeColor: .init(apiType: "grass"))
+    )
 }

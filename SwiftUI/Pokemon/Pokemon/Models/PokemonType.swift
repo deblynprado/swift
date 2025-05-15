@@ -8,27 +8,36 @@
 import Foundation
 import SwiftUI
 
+
 struct PokemonType {
-    enum PokemonTypes {
-        case bug
-        case dark
-        case dragon
-        case electric
-        case fairy
-        case fighting
-        case fire
-        case flying
-        case ghost
-        case normal
-        case grass
-        case ground
-        case ice
-        case poison
-        case psychic
-        case rock
-        case steel
-        case water
-        
+    let apiType: String
+    
+    func getColor() -> Color {
+        let type = PokemonTypes(rawValue: apiType) ?? .unknown
+        return type.getColor()
+    }
+    
+    enum PokemonTypes: String {
+        case bug = "bug"
+        case dark = "dark"
+        case dragon = "dragon"
+        case electric = "electric"
+        case fairy = "fairy"
+        case fighting = "fighting"
+        case fire = "fire"
+        case flying = "flying"
+        case ghost = "ghost"
+        case normal = "normal"
+        case grass = "grass"
+        case ground = "ground"
+        case ice = "ice"
+        case poison = "poison"
+        case psychic = "psychic"
+        case rock = "rock"
+        case steel = "steel"
+        case water = "water"
+        case unknown
+    
         func getColor() -> Color {
             switch self {
             case .bug:
@@ -65,8 +74,10 @@ struct PokemonType {
                 return Color.typeSteel
             case .water:
                 return Color.typeWater
-            default:
+            case .unknown:
                 return Color.white
+            case .psychic:
+                return Color.typePyshic
             }
         }
     }
