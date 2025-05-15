@@ -34,5 +34,5 @@ struct PokemonCard: View {
 }
 
 #Preview {
-    PokemonCard(pokemon: .init(data: .init(name: "Pikachu"), cover: .init(indexImage: 1)))
+    PokemonCard(pokemon: .init(data: .init(name: "Bulbasaur", type: ["grass"]), cover: .init(indexImage: 1)))
 }

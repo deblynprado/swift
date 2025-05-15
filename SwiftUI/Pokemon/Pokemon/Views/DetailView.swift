@@ -10,10 +10,16 @@ import SwiftUI
 struct DetailView: View {
     var pokemon: Pokemon
     var body: some View {
-        Text(pokemon.data.name)
+        HStack {
+            Text(pokemon.data.name)
+            Text(pokemon.data.type[0])
+            var test = Color.typeGrass
+        }
+        .frame(maxWidth: .infinity)
+        .background(Color.typeGrass)
     }
 }
 
 #Preview {
-    DetailView(pokemon: .init(data: .init(name: "Pikachu"), cover: .init(indexImage: 1)))
+    DetailView(pokemon: .init(data: .init(name: "Bulbasaur", type: ["grass"]), cover: .init(indexImage: 1)))
 }

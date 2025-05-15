@@ -6,12 +6,7 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		8A454CB12DD41281008A2A3E /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A454CB02DD41281008A2A3E /* DetailView.swift */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXFileReference section */
-		8A454CB02DD41281008A2A3E /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailView.swift; path = Pokemon/Views/DetailView.swift; sourceTree = "<group>"; };
 		8A769BB02DC18AF900082C4F /* Pokemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -37,7 +32,6 @@
 		8A769BA72DC18AF900082C4F = {
 			isa = PBXGroup;
 			children = (
-				8A454CB02DD41281008A2A3E /* DetailView.swift */,
 				8A769BB22DC18AF900082C4F /* Pokemon */,
 				8A769BB12DC18AF900082C4F /* Products */,
 			);
@@ -125,7 +119,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A454CB12DD41281008A2A3E /* DetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
