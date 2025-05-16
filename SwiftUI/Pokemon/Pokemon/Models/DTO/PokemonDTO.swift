@@ -7,5 +7,4 @@
 
 struct PokemonDTO: Decodable {
     let name: String
-    let type: [String]
 }

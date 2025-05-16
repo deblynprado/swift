@@ -36,7 +36,8 @@ struct PokemonCard: View {
 #Preview {
     PokemonCard(pokemon: .init(data: .init(
         name: "Bulbasaur",
-        type: ["grass"]),
+//        types: ["grass"]
+    ),
                    cover: .init(indexImage: 1),
                    typeColor: .init(apiType: "grass"))
     )

@@ -12,7 +12,7 @@ struct DetailView: View {
     var body: some View {
         HStack {
             Text(pokemon.data.name)
-            Text(pokemon.data.type[0])
+//            Text(pokemon.data.types[0])
             AsyncImage(
                 url: pokemon.cover.image,
                 content: { image in
@@ -24,10 +24,23 @@ struct DetailView: View {
                     ProgressView()
                 }
             )
+            
+            HStack(spacing: 8) {
+//                ForEach(pokemon.data.types, id: \.self) { typeString in
+//                    Text(typeString)
+//                        .font(.caption)
+//                        .fontWeight(.medium)
+//                        .padding(.horizontal, 8)
+//                        .padding(.vertical, 4)
+//                        .background(PokemonType(apiType: typeString).getColor())
+//                        .foregroundColor(.white)
+//                        .cornerRadius(10)
+//                }
+            }
         }
         .frame(maxWidth: .infinity)
         .padding(8)
-        .background(PokemonType(apiType: pokemon.data.type[0]).getColor())
+//        .background(PokemonType(apiType: pokemon.data.types[0]).getColor())
     }
 }
 
@@ -35,7 +48,8 @@ struct DetailView: View {
     DetailView(
         pokemon: .init(data: .init(
             name: "Bulbasaur",
-            type: ["grass"]),
+//            types: ["grass", "poison"]
+        ),
                        cover: .init(indexImage: 1),
                        typeColor: .init(apiType: "grass"))
     )
