@@ -29,7 +29,7 @@ struct ContentView: View {
                 guard pokemons.isEmpty else { return }
                 Task {
                     do {
-                        let pokemonsData = try await Network.shared.fetchPokemons()
+                        let pokemonsData = try await Network.shared.fetchPokemonList()
                         pokemons = pokemonsData.enumerated().map { (index, data) in
                             Pokemon(data: data, cover: .init(indexImage: index + 1), typeColor: .init(apiType: "grass"))
                         }
