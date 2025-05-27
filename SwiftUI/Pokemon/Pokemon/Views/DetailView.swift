@@ -10,6 +10,13 @@ import SwiftUI
 struct DetailView: View {
     var pokemon: Pokemon
     @State var detail: DetailDTO?
+    var backgroundColor: Color {
+        if let type = detail?.types.first?.type.name {
+            return PokemonType(apiType: type).color
+        } else {
+            return Color.white
+        }
+    }
     
     var body: some View {
         VStack {
@@ -52,7 +59,8 @@ struct DetailView: View {
         }
         .frame(maxWidth: .infinity)
         .padding(8)
-        .background(PokemonType(apiType: detail?.types.first?.type.name ?? "").getColor())
+//        .background(PokemonType(apiType: detail?.types.first?.type.name ?? "").getColor())
+        .background(backgroundColor)
     }
 }
 

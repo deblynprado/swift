@@ -82,3 +82,10 @@ struct PokemonType {
         }
     }
 }
+
+extension PokemonType {
+    var color: Color {
+        let type = PokemonTypes(rawValue: apiType) ?? .unknown
+        return type.getColor()
+    }
+}
