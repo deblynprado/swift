@@ -21,7 +21,7 @@ struct DetailView: View {
     var body: some View {
         VStack {
             Text(pokemon.data.name)
-            Text(detail?.types.first?.type.name ?? "")
+
             AsyncImage(
                 url: pokemon.cover.image,
                 content: { image in
@@ -33,7 +33,12 @@ struct DetailView: View {
                     ProgressView()
                 }
             )
-            
+        }
+        .frame(maxWidth: .infinity, maxHeight: 200)
+        .padding(8)
+        .background(backgroundColor)
+        
+        VStack {
             HStack(spacing: 8) {
                 ForEach(detail?.types.map(\.type.name) ?? [], id: \.self) { typeString in
                     Text(typeString)
@@ -57,10 +62,6 @@ struct DetailView: View {
                 }
             }
         }
-        .frame(maxWidth: .infinity)
-        .padding(8)
-//        .background(PokemonType(apiType: detail?.types.first?.type.name ?? "").getColor())
-        .background(backgroundColor)
     }
 }
 
