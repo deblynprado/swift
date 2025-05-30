@@ -51,8 +51,31 @@ struct DetailView: View {
                         .cornerRadius(10)
                 }
             }
+            
+            VStack {
+                Text("About")
+                    .foregroundColor(backgroundColor)
+                    .bold()
+                
+                HStack {
+                    VStack {
+                        Text("Weight")
+                    }
+                    
+                    
+                    VStack {
+                        Text("Height")
+                    }
+                    
+                    VStack {
+                        Text("Moves")
+                    }
+                }
+            }
+            .frame(maxWidth: .infinity)
             Spacer()
         }
+        .padding(10)
         .onAppear {
             Task {
                 do {
