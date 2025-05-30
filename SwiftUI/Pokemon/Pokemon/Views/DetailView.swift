@@ -20,7 +20,10 @@ struct DetailView: View {
     
     var body: some View {
         VStack {
-            Text(pokemon.data.name)
+            HStack {
+                Text(pokemon.data.name)
+                Text("# \(detail?.order ?? 0)")
+            }
 
             AsyncImage(
                 url: pokemon.cover.image,
@@ -60,11 +63,13 @@ struct DetailView: View {
                 HStack {
                     VStack {
                         Text("Weight")
+                        Text("\(detail?.weight ?? 0)")
                     }
                     
                     
                     VStack {
                         Text("Height")
+                        Text("\(detail?.height ?? 0)")
                     }
                     
                     VStack {

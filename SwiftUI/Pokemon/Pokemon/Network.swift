@@ -93,6 +93,7 @@ class Network {
             
             do {
                 let result = try JSONDecoder().decode(DetailDTO.self, from: data)
+                print(result)
                 return result
             } catch {
                 if let dataString = String(data: data, encoding: .utf8) {
