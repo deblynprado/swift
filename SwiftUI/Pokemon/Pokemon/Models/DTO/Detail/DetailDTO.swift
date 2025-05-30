@@ -11,4 +11,5 @@ struct DetailDTO: Decodable {
     let order: Int
     let height: Int
     let weight: Int
+    let abilities: [DetailAbilityDTO]
 }

@@ -74,6 +74,10 @@ struct DetailView: View {
                     
                     VStack {
                         Text("Moves")
+                        ForEach(detail?.abilities.map(\.ability.name) ?? [], id: \.self) { abilityString in
+                            Text(abilityString)
+                            
+                        }
                     }
                 }
             }
