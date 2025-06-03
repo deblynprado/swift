@@ -8,5 +8,7 @@
 import Foundation
 
 struct DetailStatDTO: Decodable {
-    let name: StatDTO
+    let base_stat: Int
+    let effort: Int
+    let stat: StatDTO
 }
