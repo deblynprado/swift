@@ -18,6 +18,9 @@ struct DetailView: View {
         }
     }
     
+    let gaugeMin = 0
+    let gaugeMax = 255
+    
     var body: some View {
         VStack {
             HStack {
@@ -87,9 +90,12 @@ struct DetailView: View {
                     
                     ForEach(detail?.stats ?? [], id: \.stat.name) { stat in
                         HStack {
-                                Text(stat.stat.name)
-                                Spacer()
-                                Text("\(stat.base_stat)")
+                            Text(stat.stat.name)
+                            Spacer()
+                            Text("\(stat.base_stat)")
+                            Gauge(value: Double(stat.base_stat), in: Double(gaugeMin)...Double(gaugeMax)) {
+                            }
+                            .accentColor(backgroundColor)
                             }
                         .textCase(.uppercase)
                         .foregroundColor(backgroundColor)
