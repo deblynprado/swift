@@ -80,6 +80,21 @@ struct DetailView: View {
                         }
                     }
                 }
+                
+                VStack {
+                    Text("Base Stats")
+                        .foregroundColor(backgroundColor)
+                    
+                    ForEach(detail?.stats.map(\.stat.name) ?? [], id: \.self) { statName in
+                        Text(statName)
+                            .textCase(.uppercase)
+                            .foregroundColor(backgroundColor)
+                        
+                        ForEach(detail?.stats.map(\.base_stat) ?? [], id: \.self) { pokeBase in
+                            Text("\(pokeBase)")
+                        }
+                    }
+                }
             }
             
             
