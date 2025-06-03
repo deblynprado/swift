@@ -75,7 +75,7 @@ struct DetailView: View {
                     VStack {
                         Text("Moves")
                         ForEach(detail?.abilities.map(\.ability.name) ?? [], id: \.self) { abilityString in
-                            Text(abilityString)
+                            Text("\(abilityString)")
                             
                         }
                     }
@@ -85,14 +85,14 @@ struct DetailView: View {
                     Text("Base Stats")
                         .foregroundColor(backgroundColor)
                     
-                    ForEach(detail?.stats.map(\.stat.name) ?? [], id: \.self) { statName in
-                        Text(statName)
-                            .textCase(.uppercase)
-                            .foregroundColor(backgroundColor)
-                        
-                        ForEach(detail?.stats.map(\.base_stat) ?? [], id: \.self) { pokeBase in
-                            Text("\(pokeBase)")
-                        }
+                    ForEach(detail?.stats ?? [], id: \.stat.name) { stat in
+                        HStack {
+                                Text(stat.stat.name)
+                                Spacer()
+                                Text("\(stat.base_stat)")
+                            }
+                        .textCase(.uppercase)
+                        .foregroundColor(backgroundColor)
                     }
                 }
             }
