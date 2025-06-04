@@ -10,6 +10,8 @@ import SwiftUI
 struct DetailView: View {
     var pokemon: Pokemon
     @State var detail: DetailDTO?
+    let gaugeMin = 0
+    let gaugeMax = 255
     var backgroundColor: Color {
         if let type = detail?.types.first?.type.name {
             return PokemonType(apiType: type).color
@@ -18,8 +20,32 @@ struct DetailView: View {
         }
     }
     
-    let gaugeMin = 0
-    let gaugeMax = 255
+    enum StatTypes: String {
+        case hp = "hp"
+        case attack = "attack"
+        case defense = "defense"
+        case specialAttack = "special-attack"
+        case specialDefense = "special-defense"
+        case speed = "speed"
+        
+        var displayStatName: String {
+            switch self {
+            case .hp:
+                return "hp"
+            case .attack:
+                return "atk"
+            case .defense:
+                return "dfs"
+            case .specialAttack:
+                return "satk"
+            case .specialDefense:
+                return "sdef"
+            case .speed:
+                return "spd"
+                
+            }
+        }
+    }
     
     var body: some View {
         VStack {
@@ -93,8 +119,7 @@ struct DetailView: View {
                             Text(stat.stat.name)
                             Spacer()
                             Text("\(stat.base_stat)")
-                            Gauge(value: Double(stat.base_stat), in: Double(gaugeMin)...Double(gaugeMax)) {
-                            }
+                            Gauge(value: Double(stat.base_stat), in: Double(gaugeMin)...Double(gaugeMax)) {}
                             .accentColor(backgroundColor)
                             }
                         .textCase(.uppercase)
